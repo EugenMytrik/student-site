@@ -1,0 +1,33 @@
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<table style="width:75%">
+    <tr>
+        <th>ID</th>
+        <th>GROUP NAME</th>
+        <th>CURATOR</th>
+        <th>STUDENTS</th>
+    </tr>
+    {% for item in group %}
+    <tr>
+         <td align="center"><a href="{% url 'add_student' item.id %}">{{ item.id }}</a></td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.curator }}</td>
+        <td>
+            {% for student in item.students.all %}
+                <li>
+                    ID: {{ student.id }}
+                    FULL NAME: {{ student.first_name }}
+                    {{ student.last_name }}
+                    {{ student.patronymic }}
+                </li>
+            {% endfor %}
+        </td>
+
+    </tr>
+    {% endfor %}
+
+
+</table>

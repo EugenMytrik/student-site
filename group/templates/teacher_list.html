@@ -1,0 +1,25 @@
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<table style="width:50%">
+    <tr>
+        <th>ID</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+         <th>PATRONYMIC</th>
+        <th>BIRTHDATE</th>
+    </tr>
+    {% for item in teacher %}
+    <tr>
+        <td align="center"><a href="{% url 'teacher_edit' item.id %}"> {{ item.id }} </a> </td>
+        <td>{{ item.first_name }}</td>
+        <td>{{ item.last_name }}</td>
+        <td>{{ item.patronymic }}</td>
+        <td>{{ item.birth_date }}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
